@@ -885,9 +885,16 @@
                     // Ensure ISA balance does not dip below minISABalance
                     var maxAvailableISADrawings = ISA - minISABalance;
                     maxAvailableISADrawings = Math.max(maxAvailableISADrawings, 0);
+                    
                     ISADrawings = Math.min(ISADrawings, maxAvailableISADrawings);
+                    
                     if (ISADrawings >= maxAvailableISADrawings) {
                         ISAExhausted = true;
+                    }
+
+                    //If no need for ISA withdrawals, just take what is left over the minimum balance
+                    if (netIncomeNeededFromInvestments - netPensionWithdrawal < 0 && ISA > minISABalance && finalProjection==true) {
+                        ISADrawings = ISA - minISABalance;
                     }
 
                     // Calculate total net income
