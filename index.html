@@ -539,11 +539,12 @@
             document.getElementById("expectedTotalIncomeTodaysMoney").innerHTML = '<strong>£' + formatNumber(Math.round(inflationAdjustedMaxAffordableNetIncome/12)) + '</strong>';
             
             // Simulate combined fund
+            var finalProjection = true;
             var simulation = simulateCombinedFund(
                 currentAge, retirementAge, endAge, fundAtRetirement, ISAAtRetirement, fundGrowthPost, fundCharges,
                 inflation, remainingTFCPercent, cumulativeTFC, statePensionAge, statePension,
                 earliestPensionWithdrawalAge, maxAffordableNetIncome, statePensionInflation, cashFlowDataAccumulation,
-                taxFreeCashPercent, maxTFCAmount, dbPensionAmount, dbPensionAge, dbPensionEscalation, minISABalance, useScottishTax
+                taxFreeCashPercent, maxTFCAmount, dbPensionAmount, dbPensionAge, dbPensionEscalation, minISABalance, useScottishTax, finalProjection
             );
 
             var totalFundChargesPostRetirement = simulation.totalFundCharges;
@@ -590,7 +591,7 @@
             // Accumulation phase
             for (var age = currentAge; age < retirementAge; age++) {
                 // Apply step-up in contributions if age >= stepUpAge
-                if (age >= stepUpAge) {
+                if (age >= stepUpAge && stepUpAge > 0 && stepUpContribution > 0) {
                     //if (stepUpContribution > 0) {
                         currentAnnualContribution = stepUpContribution;
                     //}
@@ -668,6 +669,7 @@
             var acceptableEndBalance = 1000; // Minimum acceptable balance at end age to prevent depletion
 
             var maxAffordableNetIncome = 0;
+            var finalProjection = false;
 
             while (iter < maxIter) {
                 maxAffordableNetIncome = (netIncomeLower + netIncomeUpper) / 2;
@@ -675,7 +677,7 @@
                     currentAge, retirementAge, endAge, fundAtRetirement, ISAAtRetirement, fundGrowthPost, fundCharges,
                     inflation, remainingTFCPercent, cumulativeTFC, statePensionAge, statePension,
                     earliestPensionWithdrawalAge, maxAffordableNetIncome, statePensionInflation, cashFlowDataAccumulation,
-                    taxFreeCashPercent, 268275, dbPensionAmount, dbPensionAge, dbPensionEscalation, minISABalance, useScottishTax
+                    taxFreeCashPercent, 268275, dbPensionAmount, dbPensionAge, dbPensionEscalation, minISABalance, useScottishTax, finalProjection
                 );
 
                 var finalBalance = simulation.finalBalance;
@@ -704,7 +706,7 @@
             currentAge, retirementAge, endAge, fundAtRetirement, ISAAtRetirement, fundGrowthPost, fundCharges,
             inflation, remainingTFCPercent, cumulativeTFC, statePensionAge, statePension,
             earliestPensionWithdrawalAge, targetNetIncome, statePensionInflation, cashFlowDataAccumulation,
-            taxFreeCashPercent, maxTFCAmount, dbPensionAmount, dbPensionAge, dbPensionEscalation, minISABalance, useScottishTax
+            taxFreeCashPercent, maxTFCAmount, dbPensionAmount, dbPensionAge, dbPensionEscalation, minISABalance, useScottishTax, finalProjection
         ) {
             var cashFlowData = [...cashFlowDataAccumulation];
             var ageWhenTFCMaxed = null;
@@ -718,8 +720,13 @@
             var ISA = ISAAtRetirement;
 
             var fundsDepletedBeforeEndAge = false; // Flag to track early depletion
-
             var previousGrossPensionWithdrawal = 0; // Initialize previous gross pension withdrawal
+
+            var dbPensionProjectionOnly = false;
+
+            if (fundAtRetirement ==0 && ISAAtRetirement ==0) {
+                dbPensionProjectionOnly = true;
+            }
 
             var totalFundCharges = 0; // Initialize total fund charges
 
@@ -940,7 +947,7 @@
 
                 previousGrossPensionWithdrawal = grossPensionWithdrawal; // Store for next iteration
 
-                if (fund <= tolerance && ISAExhausted) {
+                if (fund <= tolerance && ISAExhausted && dbPensionProjectionOnly == false && finalProjection==false) {
                     // Funds depleted before end age
                     if (age <= endAge+1) {
                         fundsDepletedBeforeEndAge = true;
