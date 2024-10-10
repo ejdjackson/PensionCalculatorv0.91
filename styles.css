@@ -391,13 +391,21 @@ input[type=number] {
     
 }
 
-
+/* Tooltip Container */
 .header-tooltip-right {
     position: relative;
     display: inline-block;
     cursor: pointer;
+    /* Make the element focusable */
+    outline: none; /* Remove default focus outline */
 }
 
+.header-tooltip-right:focus {
+    /* Optional: Add a custom focus outline for better accessibility */
+    outline: 2px solid #ffffff; /* Adjust color as needed */
+}
+
+/* Tooltip Text */
 .header-tooltip-right .header-tooltiptext {
     visibility: hidden;
     width: 250px;
@@ -417,20 +425,25 @@ input[type=number] {
     font-size: 14px;
 }
 
-.header-tooltip-right:hover .header-tooltiptext {
+/* Show Tooltip on Hover and Focus */
+.header-tooltip-right:hover .header-tooltiptext,
+.header-tooltip-right:focus .header-tooltiptext {
     visibility: visible;
     opacity: 1;
 }
 
+/* Tooltip Arrow */
 .header-tooltip-right .header-tooltiptext::after {
     content: "";
     position: absolute;
     top: -5px;
-    left: 5px;
+    left: 10px; /* Adjusted for better positioning */
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent #006699 transparent;
 }
+
+
 
 .header-tooltip-left {
     position: relative;
@@ -475,56 +488,6 @@ input[type=number] {
 
 .result-value {
     position: relative;
-}
-
-.income-info-icon {
-    position: relative;
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
-    cursor: pointer;
-    margin-left: 5px;
-}
-
-.income-tooltip {
-    visibility: hidden;
-    width: 180px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    top: -40px; /* Position above the icon */
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-    white-space: nowrap; /* Prevents wrapping */
-}
-
-.income-tooltip::after {
-    content: "";
-    position: absolute;
-    bottom: -5px; /* Arrow above the icon */
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.income-info-icon:hover .income-tooltip {
-    visibility: visible;
-    opacity: 1;
 }
 
 
