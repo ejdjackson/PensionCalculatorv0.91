@@ -260,162 +260,149 @@
             <div class="table-responsive hidden" id="cashFlowTableContainer">
                 
                 <table id="cashFlowTable">
-                    <h2 style="font-size: 15px; padding-top: 20px;">PROJECTION TABLE<br><br>(Hover cursor over the titles for information)</h2>
                     <thead>
                         <tr>
 
                             <th>
                                 Age  
-                               <!--  <span class="info-icon" tabindex="0" aria-label="More information about Age">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
-                                    <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The age at each stage of the projection, increasing by one year per row.</p>
-                                </div> -->
                             </th>
-
-                          
                             
-                           <!-- 2. Pension Fund (£) -->
                             <th>
                                 Pension Fund 
-                               <!--  <span class="info-icon-pensionfund" tabindex="0" aria-label="More information about Pension Fund">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
-                                    <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The value of your pension fund at the start of each year. <br><br>Fund = Previous Fund + Contributions + Fund Growth - Charges - Withdrawals</p>
-                                </div> -->
                             </th>
 
-                            
-
+ 
                             <!-- 3. Pension Fund Growth  -->
                             <th>
-                                Pension Fund Growth 
+                                Pension Fund Growth
                                 <span class="info-icon" tabindex="0" aria-label="More information about Pension Fund Growth">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
+                                <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>Annual growth of the pension fund, calculated based on your chosen pre-retirement and post-retirement growth rate.</p>
+                                    <p>Pension Fund Growth:<br><br>Annual growth of the pension fund, calculated based on your chosen pre-retirement and post-retirement growth rate.</p>
                                 </div>
                             </th>
+                            
 
-                            <!-- 4. Pension Fund Charges  -->
+                            <!-- 4. Pension Fund Charges -->
                             <th>
-                                Pension Fund Charges 
+                                Pension Fund Charges
                                 <span class="info-icon" tabindex="0" aria-label="More information about Pension Fund Charges">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
+                                <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The total charges deducted from your pension fund for the year, based on the percentage entered as annual fund charges.</p>
+                                    <p>Pension Fund Charges:<br><br>The total charges deducted from your pension fund for the year, based on the percentage entered as annual fund charges.</p>
                                 </div>
                             </th>
 
-                            <!-- 5. Pension Conts  -->
+                            <!-- 5. Pension Conts -->
                             <th>
-                                Pension Conts 
+                                Pension Conts
                                 <span class="info-icon" tabindex="0" aria-label="More information about Pension Contributions">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
+                                <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The annual contributions to your pension, calculated as your monthly contributions multiplied by 12.</p>
+                                    <p>Pension Contributions:<br><br>The annual contributions to your pension, calculated as your monthly contributions multiplied by 12.</p>
                                 </div>
                             </th>
 
-                            <!-- 6. ISA Holdings  -->
+                            <!-- 6. ISA Holdings -->
                             <th>
-                                ISA Holdings 
+                                ISA Holdings
                                 <span class="info-icon" tabindex="0" aria-label="More information about ISA Holdings">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
+                                <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The value of your ISA at the start of each year, including any growth, contributions, and withdrawals from previous years.</p>
+                                    <p>ISA Holdings:<br><br>The value of your ISA at the start of each year, including any growth, contributions, and withdrawals from previous years.</p>
                                 </div>
                             </th>
 
-                            <!-- 7. ISA Conts  -->
+                            <!-- 7. ISA Conts -->
                             <th>
-                                ISA Conts 
+                                ISA Conts
                                 <span class="info-icon" tabindex="0" aria-label="More information about ISA Contributions">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
+                                <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The annual contributions to your ISA, calculated as your monthly contributions multiplied by 12.</p>
+                                    <p>ISA Contributions:<br><br>The annual contributions to your ISA, calculated as your monthly contributions multiplied by 12.</p>
                                 </div>
                             </th>
 
-                            <!-- 8. ISA Withdrawals  -->
+                            <!-- 8. ISA Withdrawals -->
                             <th>
-                                ISA Withdrawals 
+                                ISA Withdrawals
                                 <span class="info-icon" tabindex="0" aria-label="More information about ISA Withdrawals">i</span>
-                                <div class="info-popup" role="tooltip" aria-hidden="true">
+                                <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The amount withdrawn from your ISA to supplement income. Withdrawals are made only when necessary, e.g., if pension income does not meet your target income.</p>
+                                    <p>ISA Withdrawals:<br><br>The amount withdrawn from your ISA to supplement income. Withdrawals are made only when necessary, e.g., if pension income does not meet your target income.</p>
                                 </div>
                             </th>
 
-                            <!-- 9. Net Pension Received  -->
+                            <!-- 9. Net Pension Received -->
                             <th>
-                                Net Pension Received 
+                                Net Pension Received
                                 <span class="info-icon" tabindex="0" aria-label="More information about Net Pension Received">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The pension income you receive after tax is deducted. Tax is calculated based on the total taxable income for the year.</p>
+                                    <p>Net Pension Received:<br><br>The pension income you receive after tax is deducted. Tax is calculated based on the total taxable income for the year.</p>
                                 </div>
                             </th>
 
-                            <!-- 10. State Pension  -->
+                            <!-- 10. State Pension -->
                             <th>
-                                State Pension 
+                                State Pension
                                 <span class="info-icon" tabindex="0" aria-label="More information about State Pension">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>Assumes that you are entitled to the maximum amount. The current state pension is revalued up to the state pension age by the larger of 2.5% and the specified inflation rate. It is also increased annually once in payment by this same percentage.</p>
+                                    <p>State Pension:<br><br>Assumes that you are entitled to the maximum amount. The current state pension is revalued up to the state pension age by the larger of 2.5% and the specified inflation rate. It is also increased annually once in payment by this same percentage.</p>
                                 </div>
                             </th>
 
-                            <!-- 11. DB Pension  -->
+                            <!-- 11. DB Pension -->
                             <th>
-                                DB Pension 
+                                DB Pension
                                 <span class="info-icon" tabindex="0" aria-label="More information about DB Pension">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The Defined Benefit (DB) pension income, beginning at the DB pension age and increasing yearly by the specified escalation rate.</p>
+                                    <p>Defined Benefit Pension:<br><br>The Defined Benefit (DB) pension income, beginning at the DB pension age and increasing yearly by the specified escalation rate.</p>
                                 </div>
                             </th>
 
-                            <!-- 12. Tax Paid  -->
+                            <!-- 12. Tax Paid -->
                             <th>
                                 Tax Payable
                                 <span class="info-icon" tabindex="0" aria-label="More information about Tax Paid">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The total tax paid on your income for the year, calculated based on current income tax bands and rates. These are different if the Scottish tax regime is chosen.</p>
+                                    <p>Tax Payable:<br><br>The total tax paid on your income for the year, calculated based on current income tax bands and rates. These are different if the Scottish tax regime is chosen.</p>
                                 </div>
                             </th>
 
-                            <!-- 13. Total Net Income  -->
+                            <!-- 13. Total Net Income -->
                             <th>
-                                Total Net Income 
+                                Total Net Income
                                 <span class="info-icon" tabindex="0" aria-label="More information about Total Net Income">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The combined total of all net income sources, including net pension withdrawals, state and DB pensions, and ISA withdrawals. This increases at the specified rate of inflation.</p>
+                                    <p>Total Net Income:<br><br>The combined total of all net income sources, including net pension withdrawals, state and DB pensions, and ISA withdrawals. This increases at the specified rate of inflation.</p>
                                 </div>
                             </th>
 
-                            <!-- 14. TFC Tax Savings  -->
+                            <!-- 14. TFC Tax Savings -->
                             <th>
-                                TFC Tax Savings 
+                                TFC Tax Savings
                                 <span class="info-icon" tabindex="0" aria-label="More information about TFC Tax Savings">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The amount of pension taken tax-free as part of Tax-Free Cash (TFC) allowance not taken as a lump sum at retirement. Any remaining TFC% not taken as a lump sum gives tax relief of the remaining % for all future pension payments. So if only 15% of the maximum 25% TFC is taken, all future pension payments are 10% tax free, up to the cumulative limit of £268,275.</p>
+                                    <p>TFC Tax Savings:<br><br>The amount of pension taken tax-free as part of Tax-Free Cash (TFC) allowance not taken as a lump sum at retirement. <br><br>Any remaining TFC% not taken as a lump sum gives tax relief of the remaining % for all future pension payments. <br><br>So if only 15% of the maximum 25% TFC is taken, all future pension payments are 10% tax free, up to the cumulative limit of £268,275.</p>
                                 </div>
                             </th>
 
-                            <!-- 15. Cumulative TFC Taken  -->
+                            <!-- 15. Cumulative TFC Taken -->
                             <th>
-                                Cumulative TFC Taken 
+                                Cumulative TFC Taken
                                 <span class="info-icon" tabindex="0" aria-label="More information about Cumulative TFC Taken">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>The running total of TFC tax relief amounts taken. There is a limit of £268,275 beyond which tax relief stops.</p>
+                                    <p>Cumulative TFC Taken:<br><br>The running total of TFC tax relief amounts taken. There is a limit of £268,275 beyond which tax relief stops.</p>
                                 </div>
                             </th>
+
 
                         </tr>
                     </thead>

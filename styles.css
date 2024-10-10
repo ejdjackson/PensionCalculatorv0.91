@@ -509,31 +509,25 @@ input[type=number] {
 /* Popup Information Box */
 .info-popup {
     visibility: hidden;
-   
-    /* z-index: 1000;
-    top: 25px; /* Position below the info icon */
-   /*  left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out; */
- 
-
     width: 250px;
-    background-color: #006699;
+    background-color:#42a5f5;
     color: #ffffff;
     text-align: left;
     padding: 12px;
     border-radius: 8px;
     position: absolute;
     z-index: 9999;
-    top: calc(100px + var(--top-offset, 0%));
-    left: 0%; /* Adjusted to move to the right */
-    margin-left: 10px; /* Space from the element */
+    top: calc(120px + var(--top-offset, 0%));
+    right: 0.1px; /* Adjusted to move to the right */
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     font-size: 14px;
+}
+
+.special-left {
+    left: 2px;
+    right: auto; /* Override the default right value if needed */
 }
 
 /* Arrow for the popup */
