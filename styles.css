@@ -391,21 +391,13 @@ input[type=number] {
     
 }
 
-/* Tooltip Container */
+
 .header-tooltip-right {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    /* Make the element focusable */
-    outline: none; /* Remove default focus outline */
 }
 
-.header-tooltip-right:focus {
-    /* Optional: Add a custom focus outline for better accessibility */
-    outline: 2px solid #ffffff; /* Adjust color as needed */
-}
-
-/* Tooltip Text */
 .header-tooltip-right .header-tooltiptext {
     visibility: hidden;
     width: 250px;
@@ -425,25 +417,20 @@ input[type=number] {
     font-size: 14px;
 }
 
-/* Show Tooltip on Hover and Focus */
-.header-tooltip-right:hover .header-tooltiptext,
-.header-tooltip-right:focus .header-tooltiptext {
+.header-tooltip-right:hover .header-tooltiptext {
     visibility: visible;
     opacity: 1;
 }
 
-/* Tooltip Arrow */
 .header-tooltip-right .header-tooltiptext::after {
     content: "";
     position: absolute;
     top: -5px;
-    left: 10px; /* Adjusted for better positioning */
+    left: 5px;
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent #006699 transparent;
 }
-
-
 
 .header-tooltip-left {
     position: relative;
@@ -488,6 +475,106 @@ input[type=number] {
 
 .result-value {
     position: relative;
+}
+
+
+
+
+
+/* Container for the info icon */
+.info-icon {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-left: 0px;
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff; /* Background color of the info circle */
+    color: #006699; /* Text color */
+    border-radius: 50%; /* Makes it a circle */
+    text-align: center;
+    
+    line-height: 20px; /* Vertically centers the 'i' */
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12px;
+    top: 10px;
+    border: #000000;
+    
+    border-width: 1px;
+    margin-bottom: 20px; /* Space between header text and info icon */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* Popup Information Box */
+.info-popup {
+    visibility: hidden;
+   
+    /* z-index: 1000;
+    top: 25px; /* Position below the info icon */
+   /*  left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; */
+ 
+
+    width: 250px;
+    background-color: #006699;
+    color: #ffffff;
+    text-align: left;
+    padding: 12px;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 9999;
+    top: calc(100px + var(--top-offset, 0%));
+    left: 0%; /* Adjusted to move to the right */
+    margin-left: 10px; /* Space from the element */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 14px;
+}
+
+/* Arrow for the popup */
+.info-popup::after {
+    content: "";
+    position: absolute;
+    top: -10px; /* Position above the popup */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+/* Show Popup when active */
+.info-icon.active + .info-popup {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Optional: Close button inside the popup */
+.info-popup .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 0px;
+    cursor: pointer;
+    color: #666666;
+}
+
+.info-popup .close-btn:hover {
+    color: #000000;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .info-popup {
+        width: 200px;
+    }
 }
 
 
