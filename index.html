@@ -115,6 +115,7 @@
                         <!-- Placeholder Image -->
                         <img id="placeholderImage" src="Pension Predictor Logo.png" alt="Placeholder Image" class="placeholder-image">
 
+                       
                         
                             <!-- Results Container -->
                             <div id="resultsContainer" class="hidden" aria-hidden="true" style="font-size: 14px;">
@@ -150,10 +151,21 @@
                             </div>
                             
                             
-                        
+                        <!-- Disclaimer Section -->
+                        <div class="explainer" id="explainerText">
+                            <p>
+                                <strong> The calculator performs the following steps:</strong> 
+                                
+                                <br><br> Step 1:  Accumulate  funds to the selected retirement age.<br><br>
+                                
+                                 Step 2:  Simulate drawdown in retirement multiple times to find the maximum affordable retirement income without running out funds.<br><br>
+                                
+                                 Step 3: Optimise the split of pension fund and ISA withdrawals in payment to minimise tax.
+                            </p>
+                        </div>
 
                         <!-- Move the Calculate Button here -->
-                        <button type="button" id="calculateButton" onclick="calculatePension()">Calculate My Pension</button>
+                        <button type="button" id="calculateButton" onclick="calculatePension()">Calculate</button>
 
                         <canvas id="incomeChart"></canvas>
                         <canvas id="fundChart"></canvas>
@@ -442,6 +454,12 @@
             const placeholderImage = document.getElementById('placeholderImage');
             if (placeholderImage) {
                 placeholderImage.style.display = 'none';
+            }
+
+            //Hide the explainer text
+            const explainerText = document.getElementById('explainerText');
+            if (explainerText) {
+                explainerText.style.display = 'none';
             }
 
             // Reveal the results container

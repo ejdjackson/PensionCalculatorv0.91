@@ -375,6 +375,16 @@ input[type=number] {
     margin: 0; /* Removes default paragraph margins */
 }
 
+.explainer {
+    margin-top: 15px; /* Adds space above the disclaimer */
+    padding: 10px; /* Adds padding inside the disclaimer box */
+    background-color: #f9f9f9; /* Light grey background */
+    border: 2px solid #000000; /* Grey left border for emphasis */
+    font-size: 0.9em; /* Slightly smaller font size */
+    color: #555; /* Dark grey text color */
+}
+
+
 .results-table thead {
     
     color:black; /* White text color for contrast */
