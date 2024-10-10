@@ -35,21 +35,34 @@
                                 </div>
                             </div>
 
-                                                    <!-- Step-Up Age Input -->
                             <div class="form-group">
-                                <label for="stepUpAge">Contribution Increase Age:</label>
-                                <div class="tooltip right-tooltip">
-                                    <input type="number" id="stepUpAge" name="stepUpAge" value="50" min="currentAge" max="retirementAge" required>
-                                    <span class="tooltiptext">Enter the age at which you intend to increase your pension contributions. <br><br>For example the age when your mortgage is paid off.</span>
-                                </div>
+                                <label>
+                                  <input type="checkbox" id="contributionIncreaseCheckbox">
+                                  Apply Contribution Increase
+                                </label>
                             </div>
 
+                            <div class="form-group hidden" id="inputStepUpAge" >
+                                <label for="stepUpAge">Contribution Increase Age:</label>
+                                <div class="tooltip left-tooltip">
+                                    <input type="number" id="stepUpAge" name="stepUpAge" value="0" required>
+                                    <span class="tooltiptext">
+                                        Enter the age at which you intend to increase your pension contributions.
+                                        <br><br>
+                                        For example, the age when your mortgage is paid off.
+                                    </span>
+                                </div>
+                            </div>
+                            
+
                             <!-- Step-Up Annual Contribution Input -->
-                            <div class="form-group">
-                                <label for="stepUpContribution">Increased Monthly Conts (£):</label>
+                            <div class="form-group hidden" id="inputStepUpContribution">
+                                <label for="stepUpContribution">Additional Monthly Conts (£):</label>
                                 <div class="tooltip right-tooltip">
-                                    <input type="number" id="stepUpContribution" name="stepUpContribution" value="1000" min="0" step="100" required>
-                                    <span class="tooltiptext">Enter the new monthly pension contribution amount from the increase age onwards.</span>
+                                    <input type="number" id="stepUpContribution" name="stepUpContribution" value="0" min="0" step="100" required>
+                                    <span class="tooltiptext">
+                                        Enter the additional pension contribution amount to add to the existing contribution from the increase age onwards.
+                                    </span>
                                 </div>
                             </div>
 
@@ -151,24 +164,38 @@
                             </div>
                             
                             
-                        <!-- Disclaimer Section -->
-                        <div class="explainer" id="explainerText">
-                            <p>
-                                <strong> The calculator performs the following steps:</strong> 
-                                
-                                <br><br> Step 1:  Accumulate  funds to the selected retirement age.<br><br>
-                                
-                                 Step 2:  Simulate drawdown in retirement multiple times to find the maximum affordable retirement income without running out funds.<br><br>
-                                
-                                 Step 3: Optimise the split of pension fund and ISA withdrawals in payment to minimise tax.
-                            </p>
-                        </div>
+                        
+
+                        
 
                         <!-- Move the Calculate Button here -->
                         <button type="button" id="calculateButton" onclick="calculatePension()">Calculate</button>
 
                         <canvas id="incomeChart"></canvas>
                         <canvas id="fundChart"></canvas>
+
+                        <!-- Explainer Section -->
+                        <div class="explainer" id="explainerText">
+                            <p>
+                                <strong> The calculator performs the following steps:</strong> 
+                                <br> Step 1:  Accumulate  funds to the selected retirement age.
+                                <br>Step 2:  Simulate drawdown in retirement multiple times to find the maximum affordable retirement income without running out funds.
+                                <br>Step 3: Optimise the split of pension fund and ISA withdrawals in payment to minimise tax.
+                            </p>
+                        </div>
+                        
+                         <!-- Assumptions Section -->
+                         <div class="explainer" id="explainerText">
+                            <p>
+                                <strong> Assumptions Valid October 2024:</strong> 
+                                
+                                <br>- Tax bands and rates for England & Wales and separate regime for Scotland.
+                                <br>- Maximum TFC of 25% with total capped at £268,275.
+                                <br>- Annual contributions limited to £60,000 for pensions and £20,000 for ISAs.
+                                <br>- Maximum state pension of £10,800 with escalation of 2.5% or inflation, whichever is higher.
+                                <br>- Earliest age for pension withdrawals is 57 if current age is 53 or younger. Otherwise 55.
+                            </p>
+                        </div>
 
                         <!-- Disclaimer Section -->
                         <div class="disclaimer">
@@ -341,7 +368,7 @@
                                 <span class="info-icon" tabindex="0" aria-label="More information about ISA Withdrawals">i</span>
                                 <div class="info-popup special-left" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>ISA Withdrawals:<br><br>The amount withdrawn from your ISA to supplement income. Withdrawals are made only when necessary, e.g., if pension income does not meet your target income.</p>
+                                    <p>ISA Withdrawals:<br><br>The amount withdrawn from your ISA to supplement income. <br><br>Withdrawals are made only when necessary, e.g., if pension income does not meet your target income.</p>
                                 </div>
                             </th>
 
@@ -351,7 +378,7 @@
                                 <span class="info-icon" tabindex="0" aria-label="More information about Net Pension Received">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>Net Pension Received:<br><br>The pension income you receive after tax is deducted. Tax is calculated based on the total taxable income for the year.</p>
+                                    <p>Net Pension Received:<br><br>The pension income you receive after tax is deducted. <br><br>Tax is calculated based on the total taxable income for the year.</p>
                                 </div>
                             </th>
 
@@ -381,7 +408,7 @@
                                 <span class="info-icon" tabindex="0" aria-label="More information about Tax Paid">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>Tax Payable:<br><br>The total tax paid on your income for the year, calculated based on current income tax bands and rates. These are different if the Scottish tax regime is chosen.</p>
+                                    <p>Tax Payable:<br><br>The total tax paid on your income for the year, calculated based on current income tax bands and rates. <br><br>These are different if the Scottish tax regime is chosen.</p>
                                 </div>
                             </th>
 
@@ -391,7 +418,7 @@
                                 <span class="info-icon" tabindex="0" aria-label="More information about Total Net Income">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>Total Net Income:<br><br>The combined total of all net income sources, including net pension withdrawals, state and DB pensions, and ISA withdrawals. This increases at the specified rate of inflation.</p>
+                                    <p>Total Net Income:<br><br>The combined total of all net income sources, including net pension withdrawals, state and DB pensions, and ISA withdrawals. <br><br>This increases at the specified rate of inflation.</p>
                                 </div>
                             </th>
 
@@ -411,7 +438,7 @@
                                 <span class="info-icon" tabindex="0" aria-label="More information about Cumulative TFC Taken">i</span>
                                 <div class="info-popup" role="tooltip" aria-hidden="true">
                                     <button class="close-btn" aria-label="Close">&times;</button>
-                                    <p>Cumulative TFC Taken:<br><br>The running total of TFC tax relief amounts taken. There is a limit of £268,275 beyond which tax relief stops.</p>
+                                    <p>Cumulative TFC Taken:<br><br>The running total of TFC tax relief amounts taken. <br><br>There is a limit of £268,275 beyond which tax relief stops.</p>
                                 </div>
                             </th>
 
@@ -439,6 +466,60 @@
                 input.addEventListener('input', checkFirstCalc);
             }
         );
+
+        //For the step  up increase functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select the checkbox and the additional inputs containers
+            const contributionIncreaseCheckbox = document.getElementById('contributionIncreaseCheckbox');
+            const inputStepUpAgeDiv = document.getElementById('inputStepUpAge');
+            const inputStepUpContributionDiv = document.getElementById('inputStepUpContribution');
+
+            // Select the input elements themselves
+            const stepUpAgeInput = document.getElementById('stepUpAge');
+            const stepUpContributionInput = document.getElementById('stepUpContribution');
+
+            if (!contributionIncreaseCheckbox) {
+                console.error('Checkbox with ID "contributionIncreaseCheckbox" not found.');
+                return;
+            }
+
+            // Function to show inputs
+            function showInputs() {
+                inputStepUpAgeDiv.classList.remove('hidden');
+                inputStepUpContributionDiv.classList.remove('hidden');
+            }
+
+            // Function to hide inputs and reset their values
+            function hideInputs() {
+                inputStepUpAgeDiv.classList.add('hidden');
+                inputStepUpContributionDiv.classList.add('hidden');
+                // Reset input values to zero
+                if (stepUpAgeInput) {
+                    stepUpAgeInput.value = 0;
+                }
+                if (stepUpContributionInput) {
+                    stepUpContributionInput.value = 0;
+                }
+            }
+
+            // Add an event listener to the checkbox
+            contributionIncreaseCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // Show both additional inputs when checked
+                    showInputs();
+                } else {
+                    // Hide both additional inputs and reset their values when unchecked
+                    hideInputs();
+                }
+            });
+
+            // Optional: Initialize the visibility and values based on the checkbox state on page load
+            if (contributionIncreaseCheckbox.checked) {
+                showInputs();
+            } else {
+                hideInputs();
+            }
+        });
 
         function checkFirstCalc() {
             if (firstCalc==false) {
@@ -474,7 +555,7 @@
             var currentFund = parseFloat(document.getElementById("currentFund").value);
             var monthlyContribution = parseFloat(document.getElementById("monthlyContribution").value);
             var stepUpAge = parseInt(document.getElementById("stepUpAge").value);
-            var stepUpContribution = parseFloat(document.getElementById("stepUpContribution").value) * 12; // Convert monthly to annual 
+            var stepUpContribution = parseFloat(document.getElementById("stepUpContribution").value) ; // Convert monthly to annual 
 
 
             // New ISA inputs
@@ -506,7 +587,7 @@
 
             var inflation = parseFloat(document.getElementById("inflation").value) / 100;
             var statePensionInflation = Math.max(inflation,0.025);
-            var earliestPensionWithdrawalAge = 57;
+            var earliestPensionWithdrawalAge = getEarliestPensionAge(currentAge);
 
             // Validate inputs
             /* if (isNaN(currentAge) || isNaN(retirementAge) || isNaN(endAge) || isNaN(currentFund) || isNaN(monthlyContribution) ||
@@ -543,12 +624,13 @@
                 return;
             }
 
-            if (monthlyContribution * 12 > 60000 || stepUpContribution > 60000) {
+            if ((monthlyContribution + stepUpContribution) * 12 > 60000 ) {
                 alert("Maximum Annual Pension Contribution is £60,000. Equivalent to £5,000 monthly.");
                 return;
             }
 
             var annualContribution = monthlyContribution * 12;
+            var annualAdditionalContribution = stepUpContribution * 12;
             var annualISAContribution = monthlyISAContribution * 12;
 
             // Calculate future state pension
@@ -561,7 +643,7 @@
                 currentFund,
                 annualContribution,
                 stepUpAge,
-                stepUpContribution,
+                annualAdditionalContribution,
                 fundGrowthPre,
                 fundCharges,
                 currentISA,
@@ -643,7 +725,7 @@
             currentFund,
             annualContribution,
             stepUpAge,
-            stepUpContribution,
+            annualAdditionalContribution,
             fundGrowthPre,
             fundCharges,
             currentISA,
@@ -658,9 +740,9 @@
             // Accumulation phase
             for (var age = currentAge; age < retirementAge; age++) {
                 // Apply step-up in contributions if age >= stepUpAge
-                if (age >= stepUpAge && stepUpAge > 0 && stepUpContribution > 0) {
+                if (age == stepUpAge && stepUpAge > 0 && annualAdditionalContribution > 0) {
                     //if (stepUpContribution > 0) {
-                        currentAnnualContribution = stepUpContribution;
+                        currentAnnualContribution = currentAnnualContribution + annualAdditionalContribution;
                     //}
                 }
 
@@ -899,14 +981,20 @@
                 grossPensionWithdrawal = Math.min(Math.max(grossPensionWithdrawal, lowerGuess), upperGuess);
 
                 while (iterations < iterationLimit) {
-                    if (iterations > 0) {
-                        // Adjust grossPensionWithdrawal using bisection method
-                        grossPensionWithdrawal = (lowerGuess + upperGuess) / 2;
-                    }
 
-                    if (grossPensionWithdrawal >= fund || fund < 100) {
-                        grossPensionWithdrawal = fund;
-                        fundExhausted = true;
+                    if (age < earliestPensionWithdrawalAge) {
+                        grossPensionWithdrawal = 0;
+                    }
+                    else {
+                        if (iterations > 0) {
+                            // Adjust grossPensionWithdrawal using bisection method
+                            grossPensionWithdrawal = (lowerGuess + upperGuess) / 2;
+                        }
+
+                        if (grossPensionWithdrawal >= fund || fund < 100) {
+                            grossPensionWithdrawal = fund;
+                            fundExhausted = true;
+                        }
                     }
 
                     // Calculate tax-free portion
@@ -1222,6 +1310,14 @@
             // Actuarial accumulation formula for a growing annuity
             return payment * (Math.pow(inflationFactor, yearsDuration) - 1) / accumulationRate;
         }
+
+        function getEarliestPensionAge(currentAge) {
+            if (currentAge >= 54) {
+                return 55; // For those aged 54 or older, pension age remains 55
+            } else {
+                return 57; // For those younger than 54, pension age is increasing to 57 from 2028
+            }
+}
 
 
         function plotChart(simulation) {

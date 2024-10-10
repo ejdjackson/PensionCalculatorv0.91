@@ -73,6 +73,13 @@ h1, h2 {
     margin-bottom: 15px;
 }
 
+.form-group-hidden {
+    margin-bottom: 15px;
+    visibility: hidden;
+    box-sizing: border-box; /* Ensures padding doesn't affect the total width */
+    
+}
+
 label {
     margin-bottom: 5px;
     color: #333333; /* Dark grey for labels */
@@ -382,6 +389,7 @@ input[type=number] {
     border: 2px solid #000000; /* Grey left border for emphasis */
     font-size: 0.9em; /* Slightly smaller font size */
     color: #555; /* Dark grey text color */
+    border-radius: 5px;
 }
 
 
